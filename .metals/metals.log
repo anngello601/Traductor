@@ -1324,3 +1324,562 @@ INFO: Unsupported notification method: $/setTrace
 2026.11.23 11:05:23 INFO  Shut down connection with build server.
 2026.11.23 11:05:23 INFO  Shut down connection with build server.
 2026.11.23 11:05:23 INFO  Exiting server
+2026.11.23 11:05:37 INFO  Started: Metals version 1.6.9 in folders 'C:\Users\LAB-USR-LSUR\Desktop\traductor-simple' for client Visual Studio Code 1.147.0.
+2026.11.23 11:05:37 INFO  Memory monitor started
+2026.11.23 11:05:39 WARN  Using H2 2.5.250 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+nov. 23, 2026 11:05:39 A. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+nov. 23, 2026 11:05:40 A. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+nov. 23, 2026 11:05:40 A. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+nov. 23, 2026 11:05:40 A. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.11.23 11:05:40 INFO  Attempting to connect to the build server...
+2026.11.23 11:05:40 INFO  Found a Bloop server running
+2026.11.23 11:05:41 INFO  Tracing is disabled for protocol BSP. To enable tracing of incoming and outgoing JSON messages, create an empty file at C:\Users\LAB-USR-LSUR\Desktop\traductor-simple\.metals\bsp.trace.json or C:\Users\LAB-USR-LSUR\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.11.23 11:05:41 INFO  Attempting to connect to the build server...
+2026.11.23 11:05:41 INFO  Found a Bloop server running
+2026.11.23 11:05:41 INFO  Tracing is disabled for protocol BSP. To enable tracing of incoming and outgoing JSON messages, create an empty file at C:\Users\LAB-USR-LSUR\Desktop\traductor-simple\project\.metals\bsp.trace.json or C:\Users\LAB-USR-LSUR\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.11.23 11:05:41 INFO  time: Connected to build server in 1.03s
+2026.11.23 11:05:41 INFO  Connected to Build server: Bloop v2.1.2
+2026.11.23 11:05:41 INFO  Scala targets not supported by server
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: java.nio.file.AccessDeniedException: C:\Users\Pc601
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.createDirectory(WindowsFileSystemProvider.java:527)
+	at java.base/java.nio.file.Files.createDirectory(Files.java:699)
+	at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:807)
+	at java.base/java.nio.file.Files.createDirectories(Files.java:793)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2(ClientInfo.scala:211)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2$adapted(ClientInfo.scala:198)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708)
+	at bloop.data.ClientInfo$BspClientInfo.getUniqueClassesDirFor(ClientInfo.scala:198)
+	at bloop.data.Project.$anonfun$fullClasspath$1(Project.scala:129)
+	at bloop.data.Project.$anonfun$fullClasspath$1$adapted(Project.scala:127)
+	at scala.collection.immutable.List.foreach(List.scala:431)
+	at bloop.data.Project.fullClasspath(Project.scala:127)
+	at bloop.data.Project.fullClasspath(Project.scala:140)
+	at bloop.bsp.BloopBspServices.getClasspath(BloopBspServices.scala:1509)
+	at bloop.bsp.BloopBspServices.$anonfun$scalacOptions$1(BloopBspServices.scala:1529)
+	at scala.collection.Iterator$$anon$10.next(Iterator.scala:461)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:184)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:47)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toList(TraversableOnce.scala:350)
+	at scala.collection.TraversableOnce.toList$(TraversableOnce.scala:350)
+	at scala.collection.AbstractIterator.toList(Iterator.scala:1431)
+	at bloop.bsp.BloopBspServices.scalacOptions$1(BloopBspServices.scala:1527)
+	at bloop.bsp.BloopBspServices.$anonfun$scalacOptions$3(BloopBspServices.scala:1548)
+	at bloop.bsp.BloopBspServices.$anonfun$ifInitialized$4(BloopBspServices.scala:383)
+	at bloop.task.Task.$anonfun$runAsync$8(Task.scala:268)
+	at monix.eval.internal.TaskRunLoop$.startFull(TaskRunLoop.scala:170)
+	at monix.eval.internal.TaskRestartCallback.syncOnSuccess(TaskRestartCallback.scala:101)
+	at monix.eval.internal.TaskRestartCallback.onSuccess(TaskRestartCallback.scala:74)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.run(TaskCreate.scala:252)
+	at monix.execution.internal.Trampoline.monix$execution$internal$Trampoline$$immediateLoop(Trampoline.scala:66)
+	at monix.execution.internal.Trampoline.startLoop(Trampoline.scala:32)
+	at monix.execution.schedulers.TrampolineExecutionContext$JVMOptimalTrampoline.startLoop(TrampolineExecutionContext.scala:132)
+	at monix.execution.internal.Trampoline.execute(Trampoline.scala:40)
+	at monix.execution.schedulers.TrampolineExecutionContext.execute(TrampolineExecutionContext.scala:57)
+	at monix.execution.schedulers.BatchingScheduler.execute(BatchingScheduler.scala:50)
+	at monix.execution.schedulers.BatchingScheduler.execute$(BatchingScheduler.scala:47)
+	at monix.execution.schedulers.AsyncScheduler.execute(AsyncScheduler.scala:31)
+	at monix.execution.schedulers.StartAsyncBatchRunnable.run(StartAsyncBatchRunnable.scala:42)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1423)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188)
+
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1583)
+
+2026.11.23 11:05:41 INFO  Scala targets not supported by server
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: java.nio.file.AccessDeniedException: C:\Users\Pc601
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.createDirectory(WindowsFileSystemProvider.java:527)
+	at java.base/java.nio.file.Files.createDirectory(Files.java:699)
+	at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:807)
+	at java.base/java.nio.file.Files.createDirectories(Files.java:793)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2(ClientInfo.scala:211)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2$adapted(ClientInfo.scala:198)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708)
+	at bloop.data.ClientInfo$BspClientInfo.getUniqueClassesDirFor(ClientInfo.scala:198)
+	at bloop.data.Project.$anonfun$fullClasspath$1(Project.scala:129)
+	at bloop.data.Project.$anonfun$fullClasspath$1$adapted(Project.scala:127)
+	at scala.collection.immutable.List.foreach(List.scala:431)
+	at bloop.data.Project.fullClasspath(Project.scala:127)
+	at bloop.data.Project.fullClasspath(Project.scala:140)
+	at bloop.bsp.BloopBspServices.getClasspath(BloopBspServices.scala:1509)
+	at bloop.bsp.BloopBspServices.$anonfun$scalacOptions$1(BloopBspServices.scala:1529)
+	at scala.collection.Iterator$$anon$10.next(Iterator.scala:461)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:184)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:47)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toList(TraversableOnce.scala:350)
+	at scala.collection.TraversableOnce.toList$(TraversableOnce.scala:350)
+	at scala.collection.AbstractIterator.toList(Iterator.scala:1431)
+	at bloop.bsp.BloopBspServices.scalacOptions$1(BloopBspServices.scala:1527)
+	at bloop.bsp.BloopBspServices.$anonfun$scalacOptions$3(BloopBspServices.scala:1548)
+	at bloop.bsp.BloopBspServices.$anonfun$ifInitialized$4(BloopBspServices.scala:383)
+	at bloop.task.Task.$anonfun$runAsync$8(Task.scala:268)
+	at monix.eval.internal.TaskRunLoop$.startFull(TaskRunLoop.scala:170)
+	at monix.eval.internal.TaskRestartCallback.syncOnSuccess(TaskRestartCallback.scala:101)
+	at monix.eval.internal.TaskRestartCallback.onSuccess(TaskRestartCallback.scala:74)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.run(TaskCreate.scala:252)
+	at monix.execution.internal.Trampoline.monix$execution$internal$Trampoline$$immediateLoop(Trampoline.scala:66)
+	at monix.execution.internal.Trampoline.startLoop(Trampoline.scala:32)
+	at monix.execution.schedulers.TrampolineExecutionContext$JVMOptimalTrampoline.startLoop(TrampolineExecutionContext.scala:132)
+	at monix.execution.internal.Trampoline.execute(Trampoline.scala:40)
+	at monix.execution.schedulers.TrampolineExecutionContext.execute(TrampolineExecutionContext.scala:57)
+	at monix.execution.schedulers.BatchingScheduler.execute(BatchingScheduler.scala:50)
+	at monix.execution.schedulers.BatchingScheduler.execute$(BatchingScheduler.scala:47)
+	at monix.execution.schedulers.AsyncScheduler.execute(AsyncScheduler.scala:31)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.startExecution(TaskCreate.scala:236)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.tryOnSuccess(TaskCreate.scala:202)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.onSuccess(TaskCreate.scala:195)
+	at bloop.task.Task$.result$2(Task.scala:465)
+	at bloop.task.Task$.$anonfun$parSequenceUnordered$3(Task.scala:475)
+	at bloop.task.Task$.$anonfun$parSequenceUnordered$3$adapted(Task.scala:473)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:74)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1423)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188)
+
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at scala.meta.internal.metals.RequestMonitorImpl$$anon$1.consume(ServerLivenessMonitor.scala:41)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1583)
+
+2026.11.23 11:05:41 INFO  Java targets not supported by server
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: java.nio.file.AccessDeniedException: C:\Users\Pc601
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.createDirectory(WindowsFileSystemProvider.java:527)
+	at java.base/java.nio.file.Files.createDirectory(Files.java:699)
+	at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:807)
+	at java.base/java.nio.file.Files.createDirectories(Files.java:793)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2(ClientInfo.scala:211)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2$adapted(ClientInfo.scala:198)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708)
+	at bloop.data.ClientInfo$BspClientInfo.getUniqueClassesDirFor(ClientInfo.scala:198)
+	at bloop.data.Project.$anonfun$fullClasspath$1(Project.scala:129)
+	at bloop.data.Project.$anonfun$fullClasspath$1$adapted(Project.scala:127)
+	at scala.collection.immutable.List.foreach(List.scala:431)
+	at bloop.data.Project.fullClasspath(Project.scala:127)
+	at bloop.data.Project.fullClasspath(Project.scala:140)
+	at bloop.bsp.BloopBspServices.getClasspath(BloopBspServices.scala:1509)
+	at bloop.bsp.BloopBspServices.$anonfun$javacOptions$1(BloopBspServices.scala:1563)
+	at scala.collection.Iterator$$anon$10.next(Iterator.scala:461)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:184)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:47)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toList(TraversableOnce.scala:350)
+	at scala.collection.TraversableOnce.toList$(TraversableOnce.scala:350)
+	at scala.collection.AbstractIterator.toList(Iterator.scala:1431)
+	at bloop.bsp.BloopBspServices.javacOptions$1(BloopBspServices.scala:1561)
+	at bloop.bsp.BloopBspServices.$anonfun$javacOptions$3(BloopBspServices.scala:1582)
+	at bloop.bsp.BloopBspServices.$anonfun$ifInitialized$4(BloopBspServices.scala:383)
+	at bloop.task.Task.$anonfun$runAsync$8(Task.scala:268)
+	at monix.eval.internal.TaskRunLoop$.startFull(TaskRunLoop.scala:170)
+	at monix.eval.internal.TaskRestartCallback.syncOnSuccess(TaskRestartCallback.scala:101)
+	at monix.eval.internal.TaskRestartCallback.onSuccess(TaskRestartCallback.scala:74)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.run(TaskCreate.scala:252)
+	at monix.execution.internal.Trampoline.monix$execution$internal$Trampoline$$immediateLoop(Trampoline.scala:66)
+	at monix.execution.internal.Trampoline.startLoop(Trampoline.scala:32)
+	at monix.execution.schedulers.TrampolineExecutionContext$JVMOptimalTrampoline.startLoop(TrampolineExecutionContext.scala:132)
+	at monix.execution.internal.Trampoline.execute(Trampoline.scala:40)
+	at monix.execution.schedulers.TrampolineExecutionContext.execute(TrampolineExecutionContext.scala:57)
+	at monix.execution.schedulers.BatchingScheduler.execute(BatchingScheduler.scala:50)
+	at monix.execution.schedulers.BatchingScheduler.execute$(BatchingScheduler.scala:47)
+	at monix.execution.schedulers.AsyncScheduler.execute(AsyncScheduler.scala:31)
+	at monix.execution.schedulers.StartAsyncBatchRunnable.run(StartAsyncBatchRunnable.scala:42)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1423)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188)
+
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1583)
+
+2026.11.23 11:05:41 INFO  Java targets not supported by server
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: java.nio.file.AccessDeniedException: C:\Users\Pc601
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.createDirectory(WindowsFileSystemProvider.java:527)
+	at java.base/java.nio.file.Files.createDirectory(Files.java:699)
+	at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:807)
+	at java.base/java.nio.file.Files.createDirectories(Files.java:793)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2(ClientInfo.scala:211)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2$adapted(ClientInfo.scala:198)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708)
+	at bloop.data.ClientInfo$BspClientInfo.getUniqueClassesDirFor(ClientInfo.scala:198)
+	at bloop.data.Project.$anonfun$fullClasspath$1(Project.scala:129)
+	at bloop.data.Project.$anonfun$fullClasspath$1$adapted(Project.scala:127)
+	at scala.collection.immutable.List.foreach(List.scala:431)
+	at bloop.data.Project.fullClasspath(Project.scala:127)
+	at bloop.data.Project.fullClasspath(Project.scala:140)
+	at bloop.bsp.BloopBspServices.getClasspath(BloopBspServices.scala:1509)
+	at bloop.bsp.BloopBspServices.$anonfun$javacOptions$1(BloopBspServices.scala:1563)
+	at scala.collection.Iterator$$anon$10.next(Iterator.scala:461)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.generic.Growable.$plus$plus$eq(Growable.scala:62)
+	at scala.collection.generic.Growable.$plus$plus$eq$(Growable.scala:53)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:184)
+	at scala.collection.mutable.ListBuffer.$plus$plus$eq(ListBuffer.scala:47)
+	at scala.collection.TraversableOnce.to(TraversableOnce.scala:366)
+	at scala.collection.TraversableOnce.to$(TraversableOnce.scala:364)
+	at scala.collection.AbstractIterator.to(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.toList(TraversableOnce.scala:350)
+	at scala.collection.TraversableOnce.toList$(TraversableOnce.scala:350)
+	at scala.collection.AbstractIterator.toList(Iterator.scala:1431)
+	at bloop.bsp.BloopBspServices.javacOptions$1(BloopBspServices.scala:1561)
+	at bloop.bsp.BloopBspServices.$anonfun$javacOptions$3(BloopBspServices.scala:1582)
+	at bloop.bsp.BloopBspServices.$anonfun$ifInitialized$4(BloopBspServices.scala:383)
+	at bloop.task.Task.$anonfun$runAsync$8(Task.scala:268)
+	at monix.eval.internal.TaskRunLoop$.startFull(TaskRunLoop.scala:170)
+	at monix.eval.internal.TaskRestartCallback.syncOnSuccess(TaskRestartCallback.scala:101)
+	at monix.eval.internal.TaskRestartCallback.onSuccess(TaskRestartCallback.scala:74)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.run(TaskCreate.scala:252)
+	at monix.execution.internal.Trampoline.monix$execution$internal$Trampoline$$immediateLoop(Trampoline.scala:66)
+	at monix.execution.internal.Trampoline.startLoop(Trampoline.scala:32)
+	at monix.execution.schedulers.TrampolineExecutionContext$JVMOptimalTrampoline.startLoop(TrampolineExecutionContext.scala:132)
+	at monix.execution.internal.Trampoline.execute(Trampoline.scala:40)
+	at monix.execution.schedulers.TrampolineExecutionContext.execute(TrampolineExecutionContext.scala:57)
+	at monix.execution.schedulers.BatchingScheduler.execute(BatchingScheduler.scala:50)
+	at monix.execution.schedulers.BatchingScheduler.execute$(BatchingScheduler.scala:47)
+	at monix.execution.schedulers.AsyncScheduler.execute(AsyncScheduler.scala:31)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.startExecution(TaskCreate.scala:236)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.tryOnSuccess(TaskCreate.scala:202)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.onSuccess(TaskCreate.scala:195)
+	at bloop.task.Task$.result$2(Task.scala:465)
+	at bloop.task.Task$.$anonfun$parSequenceUnordered$3(Task.scala:475)
+	at bloop.task.Task$.$anonfun$parSequenceUnordered$3$adapted(Task.scala:473)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:74)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1423)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188)
+
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at scala.meta.internal.metals.RequestMonitorImpl$$anon$1.consume(ServerLivenessMonitor.scala:41)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1583)
+
+2026.11.23 11:05:41 INFO  time: Imported build in 0.17s
+nov. 23, 2026 11:05:41 A. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+nov. 23, 2026 11:05:48 A. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.11.23 11:05:49 WARN  Using H2 2.5.250 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala3-library_3\3.10.0\scala3-library_3-3.10.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\3.10.0\scala-library-3.10.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala3-library_3\3.8.4\scala3-library_3-3.8.4-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\ch\epfl\scala\sbt-bloop_sbt2_3\2.1.2\sbt-bloop_sbt2_3-2.1.2-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\3.8.4\scala-library-3.8.4-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\ch\epfl\scala\bloop-config_3\2.3.3\bloop-config_3-2.3.3-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\github\plokhotnyuk\jsoniter-scala\jsoniter-scala-core_3\2.13.5.2\jsoniter-scala-core_3-2.13.5.2-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\lihaoyi\unroll-annotation_3\0.1.12\unroll-annotation_3-0.1.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\sbt\2.0.12\sbt-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\main_3\2.0.12\main_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\io_3\1.13.6\io_3-1.13.6-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\actions_3\2.0.12\actions_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\build-file_3\2.0.12\build-file_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\main-settings_3\2.0.12\main-settings_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\run_3\2.0.12\run_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\command_3\2.0.12\command_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\collections_3\2.0.12\collections_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\librarymanagement-ivy_3\2.0.12\librarymanagement-ivy_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\zinc-lm-integration_3\2.0.12\zinc-lm-integration_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-logging_3\2.0.12\util-logging_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\librarymanagement-core_3\2.0.12\librarymanagement-core_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\librarymanagement-coursier_3\2.0.12\librarymanagement-coursier_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-xml_3\2.4.0\scala-xml_3-2.4.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\eed3si9n\sjson-new-scalajson_3\0.15.1\sjson-new-scalajson_3-0.15.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\eed3si9n\sjson-new-core_3\0.15.1\sjson-new-core_3-0.15.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\launcher-interface\1.6.2\launcher-interface-1.6.2-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\github\ben-manes\caffeine\caffeine\2.8.5\caffeine-2.8.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-collection-compat_3\2.14.0\scala-collection-compat_3-2.14.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-parallel-collections_3\1.2.0\scala-parallel-collections_3-1.2.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\compiler-interface\2.0.5\compiler-interface-2.0.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\zinc-compile-core_3\2.0.5\zinc-compile-core_3-2.0.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\swoval\file-tree-views\2.1.12\file-tree-views-2.1.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\completion_3\2.0.12\completion_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\task-system_3\2.0.12\task-system_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\tasks_3\2.0.12\tasks_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\testing_3\2.0.12\testing_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-cache_3\2.0.12\util-cache_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-relation_3\2.0.12\util-relation_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-tracking_3\2.0.12\util-tracking_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\worker\2.0.12\worker-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\protocol_3\2.0.12\protocol_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\eed3si9n\gigahorse-apache-http_3\0.9.6\gigahorse-apache-http_3-0.9.6-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\jline\jline-terminal\3.27.1\jline-terminal-3.27.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\zinc-classpath_3\2.0.5\zinc-classpath_3-2.0.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\zinc-apiinfo_3\2.0.5\zinc-apiinfo_3-2.0.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\zinc_3\2.0.5\zinc_3-2.0.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala3-compiler_3\3.8.4\scala3-compiler_3-3.8.4-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\core-macros_3\2.0.12\core-macros_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\logic_3\2.0.12\logic_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-control_3\2.0.12\util-control_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\template-resolver\0.1\template-resolver-0.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-position_3\2.0.12\util-position_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-core_3\2.0.12\util-core_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\ivy\ivy\2.3.0-sbt-f686954b0021a5c3245766ced0cdaeca8ba2fd7a\ivy-2.3.0-sbt-f686954b0021a5c3245766ced0cdaeca8ba2fd7a-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-interface\2.0.12\util-interface-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\jline\jline\2.14.7-sbt-9a88bc413e2b34a4580c001c654d1a7f4f65bf18\jline-2.14.7-sbt-9a88bc413e2b34a4580c001c654d1a7f4f65bf18-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\jline\jline-terminal-jni\3.27.1\jline-terminal-jni-3.27.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\jline\jline-native\3.27.1\jline-native-3.27.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\lmax\disruptor\3.4.2\disruptor-3.4.2-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\github\mwiede\jsch\0.2.23\jsch-0.2.23-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\eed3si9n\shaded-scalajson_3\1.0.0-M4\shaded-scalajson_3-1.0.0-M4-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\eed3si9n\shaded-jawn-parser_3\1.7.0\shaded-jawn-parser_3-1.7.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\checkerframework\checker-qual\3.4.1\checker-qual-3.4.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\google\errorprone\error_prone_annotations\2.4.0\error_prone_annotations-2.4.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\zinc-classfile_3\2.0.5\zinc-classfile_3-2.0.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-parser-combinators_3\2.1.0\scala-parser-combinators_3-2.1.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\jline\jline-reader\3.27.1\jline-reader-3.27.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\jline\jline-builtins\3.27.1\jline-builtins-3.27.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\test-interface\1.0\test-interface-1.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\eed3si9n\sjson-new-murmurhash_3\0.15.1\sjson-new-murmurhash_3-0.15.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\gson\shaded-gson\2.13.1\shaded-gson-2.13.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\ipcsocket\ipcsocket\1.8.1\ipcsocket-1.8.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\eed3si9n\gigahorse-core_3\0.9.6\gigahorse-core_3-0.9.6-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\eed3si9n\shaded-apache-httpclient5\0.9.6\shaded-apache-httpclient5-0.9.6-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\zinc-core_3\2.0.5\zinc-core_3-2.0.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\zinc-persist_3\2.0.5\zinc-persist_3-2.0.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala3-interfaces\3.8.4\scala3-interfaces-3.8.4-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\tasty-core_3\3.8.4\tasty-core_3-3.8.4-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-asm\9.9.0-scala-1\scala-asm-9.9.0-scala-1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\fusesource\jansi\jansi\2.4.1\jansi-2.4.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\jline\jline-style\3.27.1\jline-style-3.27.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\net\java\dev\jna\jna\5.19.0\jna-5.19.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\net\java\dev\jna\jna-platform\5.19.0\jna-platform-5.19.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\typesafe\ssl-config-core_3\0.7.1\ssl-config-core_3-0.7.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\slf4j\slf4j-api\1.7.28\slf4j-api-1.7.28-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\sbinary_3\0.5.1\sbinary_3-0.5.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\typesafe\config\1.4.5\config-1.4.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala3-library_3\3.10.0\scala3-library_3-3.10.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\3.10.0\scala-library-3.10.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala3-library_3\3.8.4\scala3-library_3-3.8.4-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\ch\epfl\scala\sbt-bloop_sbt2_3\2.1.2\sbt-bloop_sbt2_3-2.1.2-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\3.8.4\scala-library-3.8.4-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\ch\epfl\scala\bloop-config_3\2.3.3\bloop-config_3-2.3.3-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\github\plokhotnyuk\jsoniter-scala\jsoniter-scala-core_3\2.13.5.2\jsoniter-scala-core_3-2.13.5.2-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\lihaoyi\unroll-annotation_3\0.1.12\unroll-annotation_3-0.1.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\sbt\2.0.12\sbt-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\main_3\2.0.12\main_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\io_3\1.13.6\io_3-1.13.6-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\actions_3\2.0.12\actions_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\build-file_3\2.0.12\build-file_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\main-settings_3\2.0.12\main-settings_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\run_3\2.0.12\run_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\command_3\2.0.12\command_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\collections_3\2.0.12\collections_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\librarymanagement-ivy_3\2.0.12\librarymanagement-ivy_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\zinc-lm-integration_3\2.0.12\zinc-lm-integration_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-logging_3\2.0.12\util-logging_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\librarymanagement-core_3\2.0.12\librarymanagement-core_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\librarymanagement-coursier_3\2.0.12\librarymanagement-coursier_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-xml_3\2.4.0\scala-xml_3-2.4.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\eed3si9n\sjson-new-scalajson_3\0.15.1\sjson-new-scalajson_3-0.15.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\eed3si9n\sjson-new-core_3\0.15.1\sjson-new-core_3-0.15.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\launcher-interface\1.6.2\launcher-interface-1.6.2-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\github\ben-manes\caffeine\caffeine\2.8.5\caffeine-2.8.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-collection-compat_3\2.14.0\scala-collection-compat_3-2.14.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-parallel-collections_3\1.2.0\scala-parallel-collections_3-1.2.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\compiler-interface\2.0.5\compiler-interface-2.0.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\zinc-compile-core_3\2.0.5\zinc-compile-core_3-2.0.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\swoval\file-tree-views\2.1.12\file-tree-views-2.1.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\completion_3\2.0.12\completion_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\task-system_3\2.0.12\task-system_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\tasks_3\2.0.12\tasks_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\testing_3\2.0.12\testing_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-cache_3\2.0.12\util-cache_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-relation_3\2.0.12\util-relation_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-tracking_3\2.0.12\util-tracking_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\worker\2.0.12\worker-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\protocol_3\2.0.12\protocol_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\eed3si9n\gigahorse-apache-http_3\0.9.6\gigahorse-apache-http_3-0.9.6-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\jline\jline-terminal\3.27.1\jline-terminal-3.27.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\zinc-classpath_3\2.0.5\zinc-classpath_3-2.0.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\zinc-apiinfo_3\2.0.5\zinc-apiinfo_3-2.0.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\zinc_3\2.0.5\zinc_3-2.0.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala3-compiler_3\3.8.4\scala3-compiler_3-3.8.4-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\core-macros_3\2.0.12\core-macros_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\logic_3\2.0.12\logic_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-control_3\2.0.12\util-control_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\template-resolver\0.1\template-resolver-0.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-position_3\2.0.12\util-position_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-core_3\2.0.12\util-core_3-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\ivy\ivy\2.3.0-sbt-f686954b0021a5c3245766ced0cdaeca8ba2fd7a\ivy-2.3.0-sbt-f686954b0021a5c3245766ced0cdaeca8ba2fd7a-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\util-interface\2.0.12\util-interface-2.0.12-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\jline\jline\2.14.7-sbt-9a88bc413e2b34a4580c001c654d1a7f4f65bf18\jline-2.14.7-sbt-9a88bc413e2b34a4580c001c654d1a7f4f65bf18-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\jline\jline-terminal-jni\3.27.1\jline-terminal-jni-3.27.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\jline\jline-native\3.27.1\jline-native-3.27.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\lmax\disruptor\3.4.2\disruptor-3.4.2-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\github\mwiede\jsch\0.2.23\jsch-0.2.23-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\eed3si9n\shaded-scalajson_3\1.0.0-M4\shaded-scalajson_3-1.0.0-M4-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\eed3si9n\shaded-jawn-parser_3\1.7.0\shaded-jawn-parser_3-1.7.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\checkerframework\checker-qual\3.4.1\checker-qual-3.4.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\google\errorprone\error_prone_annotations\2.4.0\error_prone_annotations-2.4.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\zinc-classfile_3\2.0.5\zinc-classfile_3-2.0.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-parser-combinators_3\2.1.0\scala-parser-combinators_3-2.1.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\jline\jline-reader\3.27.1\jline-reader-3.27.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\jline\jline-builtins\3.27.1\jline-builtins-3.27.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\test-interface\1.0\test-interface-1.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\eed3si9n\sjson-new-murmurhash_3\0.15.1\sjson-new-murmurhash_3-0.15.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\gson\shaded-gson\2.13.1\shaded-gson-2.13.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\ipcsocket\ipcsocket\1.8.1\ipcsocket-1.8.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\eed3si9n\gigahorse-core_3\0.9.6\gigahorse-core_3-0.9.6-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\eed3si9n\shaded-apache-httpclient5\0.9.6\shaded-apache-httpclient5-0.9.6-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\zinc-core_3\2.0.5\zinc-core_3-2.0.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\zinc-persist_3\2.0.5\zinc-persist_3-2.0.5-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala3-interfaces\3.8.4\scala3-interfaces-3.8.4-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\tasty-core_3\3.8.4\tasty-core_3-3.8.4-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-asm\9.9.0-scala-1\scala-asm-9.9.0-scala-1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\fusesource\jansi\jansi\2.4.1\jansi-2.4.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\jline\jline-style\3.27.1\jline-style-3.27.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\net\java\dev\jna\jna\5.19.0\jna-5.19.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\net\java\dev\jna\jna-platform\5.19.0\jna-platform-5.19.0-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\typesafe\ssl-config-core_3\0.7.1\ssl-config-core_3-0.7.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\slf4j\slf4j-api\1.7.28\slf4j-api-1.7.28-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-sbt\sbinary_3\0.5.1\sbinary_3-0.5.1-sources.jar
+2026.11.23 11:05:49 WARN  dependency missing at absolute path: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\typesafe\config\1.4.5\config-1.4.5-sources.jar
+2026.11.23 11:05:50 INFO  time: indexed workspace in 8.64s
+2026.11.23 11:05:50 INFO  Scala test classes not supported by server
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: java.nio.file.AccessDeniedException: C:\Users\Pc601
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:89)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.createDirectory(WindowsFileSystemProvider.java:527)
+	at java.base/java.nio.file.Files.createDirectory(Files.java:699)
+	at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:807)
+	at java.base/java.nio.file.Files.createDirectories(Files.java:793)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2(ClientInfo.scala:211)
+	at bloop.data.ClientInfo$BspClientInfo.$anonfun$getUniqueClassesDirFor$2$adapted(ClientInfo.scala:198)
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1708)
+	at bloop.data.ClientInfo$BspClientInfo.getUniqueClassesDirFor(ClientInfo.scala:198)
+	at bloop.data.Project.$anonfun$fullClasspath$1(Project.scala:129)
+	at bloop.data.Project.$anonfun$fullClasspath$1$adapted(Project.scala:127)
+	at scala.collection.immutable.List.foreach(List.scala:431)
+	at bloop.data.Project.fullClasspath(Project.scala:127)
+	at bloop.data.Project.fullRuntimeClasspath(Project.scala:151)
+	at bloop.engine.tasks.TestTask$.discoverTestFrameworks(TestTask.scala:269)
+	at bloop.engine.tasks.TestTask$.findTestNamesWithFramework(TestTask.scala:505)
+	at bloop.bsp.BloopBspServices.$anonfun$scalaTestClasses$3(BloopBspServices.scala:713)
+	at scala.collection.immutable.List.map(List.scala:293)
+	at bloop.bsp.BloopBspServices.$anonfun$scalaTestClasses$1(BloopBspServices.scala:711)
+	at bloop.bsp.BloopBspServices.$anonfun$ifInitialized$4(BloopBspServices.scala:383)
+	at bloop.task.Task.$anonfun$runAsync$8(Task.scala:268)
+	at monix.eval.internal.TaskRunLoop$.startFull(TaskRunLoop.scala:170)
+	at monix.eval.internal.TaskRestartCallback.syncOnSuccess(TaskRestartCallback.scala:101)
+	at monix.eval.internal.TaskRestartCallback.onSuccess(TaskRestartCallback.scala:74)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.run(TaskCreate.scala:252)
+	at monix.execution.internal.Trampoline.monix$execution$internal$Trampoline$$immediateLoop(Trampoline.scala:66)
+	at monix.execution.internal.Trampoline.startLoop(Trampoline.scala:32)
+	at monix.execution.schedulers.TrampolineExecutionContext$JVMOptimalTrampoline.startLoop(TrampolineExecutionContext.scala:132)
+	at monix.execution.internal.Trampoline.execute(Trampoline.scala:40)
+	at monix.execution.schedulers.TrampolineExecutionContext.execute(TrampolineExecutionContext.scala:57)
+	at monix.execution.schedulers.BatchingScheduler.execute(BatchingScheduler.scala:50)
+	at monix.execution.schedulers.BatchingScheduler.execute$(BatchingScheduler.scala:47)
+	at monix.execution.schedulers.AsyncScheduler.execute(AsyncScheduler.scala:31)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.startExecution(TaskCreate.scala:236)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.tryOnSuccess(TaskCreate.scala:202)
+	at monix.eval.internal.TaskCreate$CallbackForCreate.onSuccess(TaskCreate.scala:195)
+	at bloop.task.Task$.result$2(Task.scala:465)
+	at bloop.task.Task$.$anonfun$parSequenceUnordered$3(Task.scala:475)
+	at bloop.task.Task$.$anonfun$parSequenceUnordered$3$adapted(Task.scala:473)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:74)
+	at java.base/java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1423)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1808)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:188)
+
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at scala.meta.internal.metals.RequestMonitorImpl$$anon$1.consume(ServerLivenessMonitor.scala:41)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1583)
+
+nov. 23, 2026 11:05:51 A. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+nov. 23, 2026 11:15:45 A. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace

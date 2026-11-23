@@ -123,7 +123,7 @@ traduce(en, es, well,    adv, bien).
 traduce(en, es, badly,   adv, mal).
 traduce(en, es, always,  adv, siempre).
 traduce(en, es, never,   adv, nunca).
-traduce(en, es, sometimes, adv, a veces).
+traduce(en, es, sometimes, adv, 'a veces').
 traduce(en, es, here,    adv, aquí).
 traduce(en, es, there,   adv, allí).
 traduce(en, es, now,     adv, ahora).
@@ -187,7 +187,7 @@ traduce(en, es, hello,   interj, hola).
 traduce(en, es, hi,      interj, hola).
 traduce(en, es, goodbye, interj, adiós).
 traduce(en, es, bye,     interj, adiós).
-traduce(en, es, please,  interj, por favor).
+traduce(en, es, please,  interj, 'por favor').
 traduce(en, es, thanks,  interj, gracias).
 traduce(en, es, thank,   interj, gracias).
 traduce(en, es, yes,     interj, sí).
