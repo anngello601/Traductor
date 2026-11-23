@@ -1,0 +1,7 @@
+﻿{
+  "version": "0.2.0",
+  "configurations": [
+    { "type": "scala", "request": "launch", "name": "Run Servidor",
+      "mainClass": "Servidor", "args": [] }
+  ]
+}

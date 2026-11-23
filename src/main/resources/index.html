@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Traductor Inglés → Español</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f0f4f8;
+      --surface: #ffffff;
+      --text: #2c3e50;
+      --muted: #687786;
+      --border: #c7d0d9;
+      --result: #e8f5e9;
+      --accent: #3498db;
+      --accent-hover: #2980b9;
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --page: #17212b;
+      --surface: #24313d;
+      --text: #edf2f7;
+      --muted: #b0bec9;
+      --border: #526170;
+      --result: #263d35;
+      --accent: #2786c2;
+      --accent-hover: #1d6fa5;
+    }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      background: var(--page);
+      color: var(--text);
+      transition: background-color 0.2s, color 0.2s;
+    }
+    .toolbar { display: flex; justify-content: flex-end; gap: 10px; }
+    h1 { text-align: center; color: var(--text); }
+    textarea {
+      width: 100%;
+      height: 90px;
+      padding: 10px;
+      font-size: 16px;
+      color: var(--text);
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+    button {
+      padding: 10px 16px;
+      font-size: 16px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover { background: var(--accent-hover); }
+    button:focus-visible, textarea:focus-visible { outline: 3px solid #f1c40f; outline-offset: 2px; }
+    .translate-button { display: block; margin: 20px auto; padding: 12px 40px; font-size: 18px; }
+    label { font-weight: bold; display: block; margin-top: 15px; color: var(--text); }
+    #resultado { background: var(--result); }
+    #estado { text-align: center; color: var(--muted); font-style: italic; }
+    @media (max-width: 480px) {
+      body { margin: 16px auto; padding: 16px; }
+      .toolbar { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="toolbar">
+  <button id="languageToggle" type="button" aria-label="Cambiar idioma">English</button>
+  <button id="themeToggle" type="button" aria-label="Activar modo noche">🌙 Modo noche</button>
+</div>
+<h1 id="title">🌐 Traductor Inglés → Español</h1>
+<label id="inputLabel" for="entrada">Texto en Inglés:</label>
+<textarea id="entrada" placeholder="Ej: the big house"></textarea>
+<button id="translateButton" class="translate-button" type="button">Traducir</button>
+<label id="resultLabel" for="resultado">Traducción:</label>
+<textarea id="resultado" readonly></textarea>
+<p id="estado" aria-live="polite"></p>
+<script>
+  const translations = {
+    es: {
+      title: '🌐 Traductor Inglés → Español',
+      inputLabel: 'Texto en Inglés:',
+      inputPlaceholder: 'Ej: the big house',
+      translate: 'Traducir',
+      resultLabel: 'Traducción:',
+      empty: '⚠️ Escribe algo',
+      loading: '⏳ Traduciendo...',
+      success: '✅ Listo · validado por reglas',
+      error: '❌ Error',
+      languageButton: 'English',
+      languageLabel: 'Cambiar idioma',
+      night: '🌙 Modo noche',
+      day: '☀️ Modo día',
+      activateNight: 'Activar modo noche',
+      activateDay: 'Activar modo día'
+    },
+    en: {
+      title: '🌐 English → Spanish Translator',
+      inputLabel: 'Text in English:',
+      inputPlaceholder: 'E.g.: the big house',
+      translate: 'Translate',
+      resultLabel: 'Translation:',
+      empty: '⚠️ Please enter some text',
+      loading: '⏳ Translating...',
+      success: '✅ Done · rules validated',
+      error: '❌ Error',
+      languageButton: 'Español',
+      languageLabel: 'Change language',
+      night: '🌙 Dark mode',
+      day: '☀️ Light mode',
+      activateNight: 'Activate dark mode',
+      activateDay: 'Activate light mode'
+    }
+  };
+
+  const languageToggle = document.getElementById('languageToggle');
+  const themeToggle = document.getElementById('themeToggle');
+  const entrada = document.getElementById('entrada');
+  const resultado = document.getElementById('resultado');
+  const estado = document.getElementById('estado');
+  let language = localStorage.getItem('translator-language') === 'en' ? 'en' : 'es';
+
+  function applyLanguage() {
+    const text = translations[language];
+    document.documentElement.lang = language;
+    document.title = text.title.replace('🌐 ', '');
+    document.getElementById('title').textContent = text.title;
+    document.getElementById('inputLabel').textContent = text.inputLabel;
+    entrada.placeholder = text.inputPlaceholder;
+    document.getElementById('translateButton').textContent = text.translate;
+    document.getElementById('resultLabel').textContent = text.resultLabel;
+    languageToggle.textContent = text.languageButton;
+    languageToggle.setAttribute('aria-label', text.languageLabel);
+    updateThemeButton();
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem('translator-theme', theme);
+    updateThemeButton();
+  }
+
+  function updateThemeButton() {
+    const dark = document.documentElement.dataset.theme === 'dark';
+    const text = translations[language];
+    themeToggle.textContent = dark ? text.day : text.night;
+    themeToggle.setAttribute('aria-label', dark ? text.activateDay : text.activateNight);
+  }
+
+  function traducir() {
+    const text = translations[language];
+    const texto = entrada.value;
+    if (!texto.trim()) {
+      resultado.value = '';
+      estado.textContent = text.empty;
+      return;
+    }
+
+    resultado.value = '';
+    estado.textContent = text.loading;
+    fetch('/traducir?texto=' + encodeURIComponent(texto), {
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(response => response.json())
+      .then(data => {
+        resultado.value = data.traduccion || '';
+        estado.textContent = data.error ? `❌ ${data.error}` : text.success;
+      })
+      .catch(() => {
+        resultado.value = '';
+        estado.textContent = text.error;
+      });
+  }
+
+  languageToggle.addEventListener('click', () => {
+    language = language === 'es' ? 'en' : 'es';
+    localStorage.setItem('translator-language', language);
+    applyLanguage();
+  });
+  themeToggle.addEventListener('click', () => {
+    applyTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+  });
+  document.getElementById('translateButton').addEventListener('click', traducir);
+  entrada.addEventListener('keydown', event => {
+    if (event.ctrlKey && event.key === 'Enter') traducir();
+  });
+
+  const savedTheme = localStorage.getItem('translator-theme');
+  applyTheme(savedTheme === 'dark' ? 'dark' : 'light');
+  applyLanguage();
+</script>
+</body>
+</html>

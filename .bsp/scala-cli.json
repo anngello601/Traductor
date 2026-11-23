@@ -1,0 +1,20 @@
+{
+  "name": "scala-cli",
+  "argv": [
+    "C:\\Users\\LAB-USR-LSUR\\scala-cli\\scala-cli.exe",
+    "bsp",
+    "--json-options",
+    "C:\\Users\\LAB-USR-LSUR\\Desktop\\Traductor-Prolog-Scala\\traductor-simple\\.scala-build\\ide-options-v2.json",
+    "--json-launcher-options",
+    "C:\\Users\\LAB-USR-LSUR\\Desktop\\Traductor-Prolog-Scala\\traductor-simple\\.scala-build\\ide-launcher-options.json",
+    "--envs-file",
+    "C:\\Users\\LAB-USR-LSUR\\Desktop\\Traductor-Prolog-Scala\\traductor-simple\\.scala-build\\ide-envs.json",
+    "C:\\Users\\LAB-USR-LSUR\\Desktop\\Traductor-Prolog-Scala\\traductor-simple\\Servidor.scala"
+  ],
+  "version": "1.18.0",
+  "bspVersion": "2.1.1",
+  "languages": [
+    "scala",
+    "java"
+  ]
+}

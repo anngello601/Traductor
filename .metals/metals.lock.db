@@ -1,0 +1,6 @@
+#FileLock
+#Mon Nov 23 11:05:40 PET 2026
+hostName=localhost
+id=1a20927e80743bb8bc495dfbbd9378fd38a6679005c
+method=file
+server=localhost\:60778

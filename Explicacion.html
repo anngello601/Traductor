@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Explicación del Traductor-Simple</title>
+    <style>
+        body { font-family: Calibri, Arial, sans-serif; font-size: 11pt;
+            max-width: 900px; margin: 40px auto; padding: 20px;
+            color: #1a1a1a; line-height: 1.55; }
+        h1 { color: #1f4e79; border-bottom: 2px solid #1f4e79; padding-bottom: 8px; }
+        h2 { color: #2c5f8a; margin-top: 30px; }
+        h3 { color: #34495e; }
+        code { background: #f4f4f4; padding: 2px 5px; border-radius: 4px;
+            font-family: Consolas, monospace; }
+        pre { background: #f4f4f4; padding: 14px; border-left: 4px solid #3498db;
+            font-family: Consolas, monospace; overflow-x: auto; }
+        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+        th, td { border: 1px solid #bbb; padding: 7px 10px; text-align: left; }
+        th { background: #e8f0f8; }
+        .nota { background: #fff8dc; border-left: 4px solid #f0ad4e; padding: 12px; }
+        .ruta { font-family: Consolas, monospace; color: #7b3f00; }
+    </style>
+</head>
+<body>
+
+<h1>Traductor-Simple: explicación completa del código</h1>
+
+<p><strong>Proyecto:</strong> traducción Inglés → Español mediante HTML, JavaScript, Scala, Python/FastAPI y SWI-Prolog.</p>
+<p><strong>Prueba representativa:</strong> la frase <code>I AM FIVE YEARS OLD AND MY FRIEND HAS THREE BOOKS</code> conserva los números escritos y produce una traducción similar a:</p>
+<pre>yo tengo cinco años y mi amigo tiene tres libros</pre>
+
+<h2>1. Arquitectura del sistema</h2>
+
+<pre>
+┌──────────────────────────────────────────────┐
+│ Navegador: HTML + JavaScript                 │
+│ src/main/resources/index.html                │
+└──────────────────────┬───────────────────────┘
+                       │ GET /traducir?texto=...
+                       ▼
+┌──────────────────────────────────────────────┐
+│ Gateway principal — Scala — puerto 8080      │
+│ src/main/scala/Servidor.scala                │
+│ Recibe, valida y coordina las llamadas       │
+└──────────────────────┬───────────────────────┘
+                       │ GET /traducir?texto=...
+                       ▼
+┌──────────────────────────────────────────────┐
+│ Procesamiento NLP — Python/FastAPI — 5001   │
+│ servidor.py                                  │
+│ Limpia, separa palabras y propone traducción│
+└──────────────────────┬───────────────────────┘
+                       │ POST JSON
+                       ▼
+┌──────────────────────────────────────────────┐
+│ Reglas gramaticales — SWI-Prolog — 5002     │
+│ src/main/prolog/traductor.pl                 │
+│ Valida la propuesta y aplica reglas          │
+└──────────────────────┬───────────────────────┘
+                       │ JSON de validación
+                       ▼
+        Python → Scala → Navegador
+</pre>
+
+<h2>2. Rol de cada lenguaje</h2>
+
+<table>
+    <tr><th>Tecnología</th><th>Rol</th><th>Puerto o archivo</th></tr>
+    <tr><td>HTML/JavaScript</td><td>Muestra el formulario, envía texto y presenta JSON.</td><td><code>index.html</code></td></tr>
+    <tr><td>Scala</td><td>Gateway REST público, coordina Python y Prolog, sirve la interfaz.</td><td>8080; <code>Servidor.scala</code></td></tr>
+    <tr><td>Python/FastAPI</td><td>Limpia texto, tokeniza, genera propuestas y prepara datos para Prolog.</td><td>5001; <code>servidor.py</code></td></tr>
+    <tr><td>SWI-Prolog</td><td>Servidor de reglas, diccionario, concordancia y validación final.</td><td>5002; <code>traductor.pl</code></td></tr>
+</table>
+
+<h2>3. Código del navegador: HTML y JavaScript</h2>
+
+<p>El usuario escribe en el primer <code>textarea</code>. Al pulsar <strong>Traducir</strong>, JavaScript envía el texto mediante URL codificada:</p>
+
+<pre>
+fetch('/traducir?texto=' + encodeURIComponent(texto))
+    .then(respuesta =&gt; respuesta.json())
+    .then(datos =&gt; {
+        resultado.value = datos.traduccion || '';
+    });
+</pre>
+
+<p><code>encodeURIComponent</code> permite enviar espacios, números, caracteres especiales y acentos. JavaScript solo conoce el puerto 8080; no llama directamente ni a Python ni a Prolog.</p>
+
+<h2>4. Código de Scala: gateway principal</h2>
+
+<p><code>Servidor.scala</code> crea dos contextos HTTP:</p>
+<ul>
+    <li><code>/</code>: entrega el archivo <code>index.html</code>.</li>
+    <li><code>/traducir</code>: recibe el texto, conserva letras, acentos y números, y llama a Python.</li>
+</ul>
+
+<p>La limpieza ya permite números:</p>
+<pre>
+val limpio = texto.toLowerCase
+    .replaceAll("[^a-záéíóúñü0-9 ]", "")
+    .trim
+</pre>
+
+<p>Scala construye la petición hacia FastAPI usando Java HTTP Client:</p>
+<pre>
+val textoCodificado = URLEncoder.encode(texto, "UTF-8")
+val url = URI.create(
+    s"http://127.0.0.1:5001/traducir?texto=$textoCodificado"
+)
+
+HttpRequest.newBuilder(url).GET().build()
+</pre>
+
+<p>Scala devuelve el JSON recibido al navegador. También produce un JSON de error si Python está detenido.</p>
+
+<h2>5. Código de Python: procesamiento NLP</h2>
+
+<p>FastAPI recibe el texto en <code>servidor.py</code>. El modelo de datos se declara con Pydantic:</p>
+<pre>
+class SolicitudTraduccion(BaseModel):
+    texto: str
+</pre>
+
+<p>Python realiza tres pasos:</p>
+<ol>
+    <li><strong>Limpiar:</strong> pasa todo a minúsculas y conserva letras, acentos, espacios y números.</li>
+    <li><strong>Tokenizar:</strong> divide la frase en palabras con <code>texto.split()</code>.</li>
+    <li><strong>Proponer:</strong> busca cada palabra en el diccionario Python.</li>
+</ol>
+
+<pre>
+return re.sub(r"[^a-záéíóúñü0-9 ]", "", texto)
+</pre>
+
+<p>Las palabras desconocidas y los números se conservan:</p>
+<pre>
+return [DICCIONARIO.get(token, token) for token in tokens]
+</pre>
+
+<p>Por ejemplo, <code>23</code> se conserva como texto y se envía también mediante JSON. Los números escritos tienen su propia entrada: <code>three</code> se convierte en <code>tres</code> y <code>five</code> en <code>cinco</code>.</p>
+<p>Los números escritos también están incluidos en el diccionario: <code>zero, one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, twenty, thirty, hundred</code>. Por ejemplo, <code>five</code> se convierte en <code>cinco</code>.</p>
+<p><strong>Edad:</strong> la construcción inglesa <code>I am 5 years old</code> se convierte primero en <code>yo tengo 5 años</code>. Python detecta la estructura completa; Prolog conserva la validación y evita respuestas incorrectas como <code>yo soy 5 años viejo</code>.</p>
+
+<h2>6. Código de Prolog: servidor de reglas</h2>
+
+<p><code>traductor.pl</code> registra el servidor HTTP en el puerto 5002:</p>
+<pre>
+:- use_module(library(http/thread_httpd)).
+:- use_module(library(http/http_dispatch)).
+:- use_module(library(http/http_json)).
+
+:- http_handler(root(traducir), traducir_http,
+                [methods([post])]).
+</pre>
+
+<p>El servidor lee el JSON enviado por Python:</p>
+<pre>
+http_read_json_dict(Request, Datos),
+get_dict(propuesta, Datos, Propuesta),
+validar_genero(PropuestaAtoms, PropuestaValidadaAtoms),
+reply_json_dict(_{
+    traduccion: Resultado,
+    reglas_aplicadas: true
+}).
+</pre>
+
+<p>Prolog conserva los elementos desconocidos y verifica concordancias definidas por reglas. Los números son datos neutros: se dejan sin modificar dentro de la frase.</p>
+
+<h2>7. Ejemplo completo con números</h2>
+
+<pre>
+Entrada:     I AM FIVE YEARS OLD AND MY FRIEND HAS THREE BOOKS
+
+Scala:       conserva "i am five years old and my friend has three books"
+Python:      tokens = i, am, five, years, old, and, my, friend, has, three, books
+Python:      propuesta = yo tengo cinco años y mi amigo tiene tres libros
+Prolog:      valida las reglas y conserva los números escritos como palabras
+Salida:      yo tengo cinco años y mi amigo tiene tres libros
+</pre>
+
+<h2>8. Cómo instalar lo necesario</h2>
+
+<p>Abrir PowerShell como usuario normal en la raíz del proyecto:</p>
+
+<pre>
+cd C:\Users\Pc601\Desktop\traductor-simple
+python -m pip install -r requirements.txt
+</pre>
+
+<p>Comprueba las herramientas:</p>
+<pre>
+python --version
+sbt --version
+swipl --version
+</pre>
+
+<p>Se usan las siguientes dependencias de Python:</p>
+<table>
+    <tr><th>Paquete</th><th>Uso</th></tr>
+    <tr><td>FastAPI</td><td>Crea el servicio HTTP del puerto 5001.</td></tr>
+    <tr><td>Uvicorn</td><td>Ejecuta FastAPI.</td></tr>
+    <tr><td>Pydantic</td><td>Valida el cuerpo JSON recibido.</td></tr>
+</table>
+
+<h2>9. Cómo ejecutar el programa paso a paso</h2>
+
+<p><strong>Debe ejecutarse una terminal por servicio.</strong> Mantén las tres terminales abiertas.</p>
+
+<h3>Terminal 1: iniciar SWI-Prolog</h3>
+<pre>
+cd C:\Users\Pc601\Desktop\traductor-simple
+swipl -q -s src/main/prolog/traductor.pl -g "servidor(5002), thread_get_message(_)"
+</pre>
+
+<p>Resultado esperado:</p>
+<pre>
+Servidor Prolog activo en http://localhost:5002
+</pre>
+
+<h3>Terminal 2: iniciar Python/FastAPI</h3>
+<pre>
+cd C:\Users\Pc601\Desktop\traductor-simple
+python servidor.py
+</pre>
+
+<p>Resultado esperado:</p>
+<pre>
+Uvicorn running on http://0.0.0.0:5001
+</pre>
+
+<h3>Terminal 3: iniciar Scala</h3>
+<pre>
+cd C:\Users\Pc601\Desktop\traductor-simple
+sbt run
+</pre>
+
+<p>Resultado esperado:</p>
+<pre>
+Servidor activo en http://localhost:8080
+</pre>
+
+<h3>Abrir la web</h3>
+<pre>
+http://localhost:8080
+</pre>
+
+<h2>10. Cómo se usó cada herramienta</h2>
+
+<ol>
+    <li><strong>sbt</strong> compila Scala y ejecuta el gateway en el puerto 8080.</li>
+    <li><strong>Python</strong> ejecuta FastAPI y el procesamiento lingüístico en el puerto 5001.</li>
+    <li><strong>SWI-Prolog</strong> carga el archivo de reglas y abre el servidor HTTP del puerto 5002.</li>
+    <li><strong>Java HTTP Client</strong> permite que Scala consulte FastAPI sin agregar otra biblioteca.</li>
+    <li><strong>HTTP JSON</strong> comunica Python con Prolog.</li>
+    <li><strong>Navegador y Fetch API</strong> envían texto y reciben el resultado final JSON.</li>
+</ol>
+
+<h2>11. Pruebas rápidas por terminal</h2>
+
+<h3>Comprobar Python</h3>
+<pre>
+curl.exe http://localhost:5001/health
+</pre>
+
+<h3>Comprobar Prolog</h3>
+<pre>
+curl.exe http://localhost:5002/health
+</pre>
+
+<h3>Comprobar Python</h3>
+<pre>
+curl.exe "http://localhost:5001/traducir?texto=i%20am%20five%20years%20old"
+</pre>
+
+<h3>Comprobar el sistema completo</h3>
+<pre>
+curl.exe "http://localhost:8080/traducir?texto=i%20am%20five%20years%20old%20and%20my%20friend%20has%20three%20books"
+</pre>
+
+<h2>12. Errores frecuentes</h2>
+
+<table>
+    <tr><th>Error</th><th>Causa probable</th><th>Solución</th></tr>
+    <tr><td><code>Python responded 5001 unavailable</code></td><td>FastAPI no está ejecutándose.</td><td>Iniciar <code>python servidor.py</code>.</td></tr>
+    <tr><td>La petición falla en el puerto 5002</td><td>Prolog no inició el servidor.</td><td>Usar el comando completo del apartado 9.</td></tr>
+    <tr><td><code>Address already in use</code></td><td>Ya existe otro proceso usando 8080, 5001 o 5002.</td><td>Cerrar ese proceso e iniciar nuevamente el servicio.</td></tr>
+    <tr><td>Los números desaparecen</td><td>El filtro anterior eliminaba caracteres distintos de letras.</td><td>Los filtros Scala y Python ahora permiten <code>0-9</code>.</td></tr>
+    <tr><td>La página no carga</td><td>No se ejecutó Scala desde la raíz.</td><td>Entrar en la carpeta del proyecto antes de <code>sbt run</code>.</td></tr>
+</table>
+
+<div class="nota">
+    <strong>Cómo detener:</strong> vuelve a cada terminal y pulsa <code>Ctrl+C</code>. Termina primero Scala, luego Python y finalmente Prolog.
+</div>
+
+</body>
+</html>

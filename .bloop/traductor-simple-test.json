@@ -1,0 +1,199 @@
+{
+    "version": "1.4.0",
+    "project": {
+        "name": "traductor-simple-test",
+        "directory": "C:\\Users\\Pc601\\Desktop\\traductor-simple",
+        "workspaceDir": "C:\\Users\\Pc601\\Desktop\\traductor-simple",
+        "sources": [
+            "C:\\Users\\Pc601\\Desktop\\traductor-simple\\src\\test\\scala",
+            "C:\\Users\\Pc601\\Desktop\\traductor-simple\\src\\test\\scala-3",
+            "C:\\Users\\Pc601\\Desktop\\traductor-simple\\src\\test\\java",
+            "C:\\Users\\Pc601\\Desktop\\traductor-simple\\target\\out\\jvm\\scala-3.10.0\\traductor-simple\\src_managed\\test"
+        ],
+        "dependencies": [
+            "traductor-simple"
+        ],
+        "classpath": [
+            "C:\\Users\\Pc601\\Desktop\\traductor-simple\\.bloop\\traductor-simple\\scala-3.10.0\\classes",
+            "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala3-library_3\\3.10.0\\scala3-library_3-3.10.0.jar",
+            "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-library\\3.10.0\\scala-library-3.10.0.jar"
+        ],
+        "out": "C:\\Users\\Pc601\\Desktop\\traductor-simple\\.bloop\\traductor-simple",
+        "classesDir": "C:\\Users\\Pc601\\Desktop\\traductor-simple\\.bloop\\traductor-simple\\scala-3.10.0\\test-classes",
+        "resources": [
+            "C:\\Users\\Pc601\\Desktop\\traductor-simple\\src\\test\\resources",
+            "C:\\Users\\Pc601\\Desktop\\traductor-simple\\target\\out\\jvm\\scala-3.10.0\\traductor-simple\\resource_managed\\test"
+        ],
+        "scala": {
+            "organization": "org.scala-lang",
+            "name": "scala-compiler",
+            "version": "3.10.0",
+            "options": [
+                
+            ],
+            "jars": [
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala3-library_3\\3.10.0\\scala3-library_3-3.10.0.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-library\\3.10.0\\scala-library-3.10.0.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala3-compiler_3\\3.10.0\\scala3-compiler_3-3.10.0.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala3-interfaces\\3.10.0\\scala3-interfaces-3.10.0.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\tasty-core_3\\3.10.0\\tasty-core_3-3.10.0.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\ow2\\asm\\asm-util\\9.10.1\\asm-util-9.10.1.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\ow2\\asm\\asm-commons\\9.10.1\\asm-commons-9.10.1.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\compiler-interface\\1.12.0\\compiler-interface-1.12.0.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\ow2\\asm\\asm\\9.10.1\\asm-9.10.1.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\ow2\\asm\\asm-tree\\9.10.1\\asm-tree-9.10.1.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\ow2\\asm\\asm-analysis\\9.10.1\\asm-analysis-9.10.1.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\util-interface\\1.11.5\\util-interface-1.11.5.jar"
+            ],
+            "setup": {
+                "order": "mixed",
+                "addLibraryToBootClasspath": false,
+                "addCompilerToClasspath": false,
+                "addExtraJarsToClasspath": false,
+                "manageBootClasspath": false,
+                "filterLibraryFromClasspath": false
+            },
+            "bridgeJars": [
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala3-sbt-bridge\\3.10.0\\scala3-sbt-bridge-3.10.0.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala3-sbt-bridge\\3.10.0\\scala3-sbt-bridge-3.10.0.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala3-compiler_3\\3.10.0\\scala3-compiler_3-3.10.0.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala3-repl_3\\3.10.0\\scala3-repl_3-3.10.0.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala3-interfaces\\3.10.0\\scala3-interfaces-3.10.0.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\tasty-core_3\\3.10.0\\tasty-core_3-3.10.0.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala3-library_3\\3.10.0\\scala3-library_3-3.10.0.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\ow2\\asm\\asm-util\\9.10.1\\asm-util-9.10.1.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\ow2\\asm\\asm-commons\\9.10.1\\asm-commons-9.10.1.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\compiler-interface\\1.12.0\\compiler-interface-1.12.0.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala3-directives-parser_3\\3.10.0\\scala3-directives-parser_3-3.10.0.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\jline\\jline-reader\\4.3.1\\jline-reader-4.3.1.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\jline\\jline-terminal\\4.3.1\\jline-terminal-4.3.1.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\jline\\jline-terminal-jni\\4.3.1\\jline-terminal-jni-4.3.1.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\get-coursier\\interface\\1.0.29-M4\\interface-1.0.29-M4.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-library\\3.10.0\\scala-library-3.10.0.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\ow2\\asm\\asm\\9.10.1\\asm-9.10.1.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\ow2\\asm\\asm-tree\\9.10.1\\asm-tree-9.10.1.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\ow2\\asm\\asm-analysis\\9.10.1\\asm-analysis-9.10.1.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\util-interface\\1.11.5\\util-interface-1.11.5.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\jline\\jline-native\\4.3.1\\jline-native-4.3.1.jar",
+                "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\slf4j\\slf4j-api\\1.7.36\\slf4j-api-1.7.36.jar"
+            ]
+        },
+        "java": {
+            "options": [
+                
+            ]
+        },
+        "test": {
+            "frameworks": [
+                {
+                    "names": [
+                        "org.scalacheck.ScalaCheckFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs2.runner.Specs2Framework",
+                        "org.specs2.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalatest.tools.Framework",
+                        "org.scalatest.tools.ScalaTestFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "com.novocode.junit.JUnitFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "munit.Framework"
+                    ]
+                },
+                {
+                    "names": [
+                        "zio.test.sbt.ZTestFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "weaver.framework.CatsEffect"
+                    ]
+                },
+                {
+                    "names": [
+                        "hedgehog.sbt.Framework"
+                    ]
+                }
+            ],
+            "options": {
+                "excludes": [
+                    
+                ],
+                "arguments": [
+                    
+                ]
+            }
+        },
+        "platform": {
+            "name": "jvm",
+            "config": {
+                "home": "C:\\Program Files\\Java\\jdk-25.0.3",
+                "options": [
+                    "-Duser.dir=C:\\Users\\Pc601\\Desktop\\traductor-simple"
+                ]
+            },
+            "mainClass": [
+                
+            ]
+        },
+        "resolution": {
+            "modules": [
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala3-library_3",
+                    "version": "3.10.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala3-library_3",
+                            "path": "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala3-library_3\\3.10.0\\scala3-library_3-3.10.0.jar"
+                        },
+                        {
+                            "name": "scala3-library_3",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala3-library_3\\3.10.0\\scala3-library_3-3.10.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "3.10.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-library\\3.10.0\\scala-library-3.10.0.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\Pc601\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-library\\3.10.0\\scala-library-3.10.0-sources.jar"
+                        }
+                    ]
+                }
+            ]
+        },
+        "tags": [
+            "test"
+        ]
+    }
+}

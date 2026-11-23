@@ -1,0 +1,7 @@
+{
+  "files.associations": { "*.pl": "prolog" },
+  "scala.useBspServer": true,
+  "files.watcherExclude": {
+    "**/target/**": true
+  }
+}
