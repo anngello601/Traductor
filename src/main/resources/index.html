@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Traductor Inglés → Español</title>
+  <title>Traductor Español ↔ Inglés</title>
   <style>
     :root {
       color-scheme: light;
@@ -50,6 +50,25 @@
       box-sizing: border-box;
       resize: vertical;
     }
+    select, input[type="file"] {
+      width: 100%;
+      margin-top: 6px;
+      padding: 10px;
+      color: var(--text);
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+    .file-panel {
+      margin-top: 28px;
+      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    #downloadResult { display: block; margin-top: 12px; text-align: center; }
+    #downloadResult[hidden] { display: none; }
     button {
       padding: 10px 16px;
       font-size: 16px;
@@ -76,24 +95,48 @@
   <button id="languageToggle" type="button" aria-label="Cambiar idioma">English</button>
   <button id="themeToggle" type="button" aria-label="Activar modo noche">🌙 Modo noche</button>
 </div>
-<h1 id="title">🌐 Traductor Inglés → Español</h1>
-<label id="inputLabel" for="entrada">Texto en Inglés:</label>
-<textarea id="entrada" placeholder="Ej: the big house"></textarea>
+<h1 id="title">🌐 Traductor Español ↔ Inglés</h1>
+<label id="directionLabel" for="direction">Dirección:</label>
+<select id="direction">
+  <option value="es-en">Español → Inglés</option>
+  <option value="en-es">English → Spanish</option>
+</select>
+<label id="inputLabel" for="entrada">Texto en Español:</label>
+<textarea id="entrada" placeholder="Ej: hola"></textarea>
 <button id="translateButton" class="translate-button" type="button">Traducir</button>
 <label id="resultLabel" for="resultado">Traducción:</label>
 <textarea id="resultado" readonly></textarea>
 <p id="estado" aria-live="polite"></p>
+<section class="file-panel" aria-labelledby="fileTitle">
+  <h2 id="fileTitle">Traducir archivo</h2>
+    <label id="fileLabel" for="archivo">Subir archivo .txt, .docx o .pdf:</label>
+    <input id="archivo" type="file" accept=".txt,.docx,.pdf,text/plain,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+    <button id="fileButton" class="translate-button" type="button">Traducir y descargar</button>
+    <a id="downloadResult" hidden></a>
+</section>
 <script>
   const translations = {
     es: {
-      title: '🌐 Traductor Inglés → Español',
-      inputLabel: 'Texto en Inglés:',
-      inputPlaceholder: 'Ej: the big house',
+      title: '🌐 Traductor Español ↔ Inglés',
+      directionLabel: 'Dirección:',
+      inputLabelSpanish: 'Texto en Español:',
+      inputPlaceholderSpanish: 'Ej: hola',
+      inputLabelEnglish: 'Text in English:',
+      inputPlaceholderEnglish: 'Ej: hello',
       translate: 'Traducir',
       resultLabel: 'Traducción:',
       empty: '⚠️ Escribe algo',
       loading: '⏳ Traduciendo...',
       success: '✅ Listo · validado por reglas',
+      fileTitle: 'Traducir archivo',
+      fileLabel: 'Subir archivo .txt, .docx o .pdf:',
+      fileButton: 'Traducir y descargar',
+      fileEmpty: '⚠️ Selecciona un archivo .txt, .docx o .pdf',
+      fileLoading: '⏳ Traduciendo archivo...',
+      fileSuccess: '✅ Traducción lista en el mismo formato.',
+      fileError: '❌ No se pudo traducir el archivo',
+      download: 'Descargar traducción',
+      fileTooLarge: '⚠️ El archivo supera el límite de 10 MB',
       error: '❌ Error',
       languageButton: 'English',
       languageLabel: 'Cambiar idioma',
@@ -103,14 +146,26 @@
       activateDay: 'Activar modo día'
     },
     en: {
-      title: '🌐 English → Spanish Translator',
-      inputLabel: 'Text in English:',
-      inputPlaceholder: 'E.g.: the big house',
+      title: '🌐 Spanish ↔ English Translator',
+      directionLabel: 'Direction:',
+      inputLabelSpanish: 'Text in Spanish:',
+      inputPlaceholderSpanish: 'E.g.: hola',
+      inputLabelEnglish: 'Text in English:',
+      inputPlaceholderEnglish: 'E.g.: hello',
       translate: 'Translate',
       resultLabel: 'Translation:',
       empty: '⚠️ Please enter some text',
       loading: '⏳ Translating...',
       success: '✅ Done · rules validated',
+      fileTitle: 'Translate a file',
+      fileLabel: 'Upload a .txt, .docx, or .pdf file:',
+      fileButton: 'Translate and download',
+      fileEmpty: '⚠️ Select a .txt, .docx, or .pdf file',
+      fileLoading: '⏳ Translating file...',
+      fileSuccess: '✅ Translation ready in the same format.',
+      fileError: '❌ Could not translate the file',
+      download: 'Download translation',
+      fileTooLarge: '⚠️ File exceeds the 10 MB limit',
       error: '❌ Error',
       languageButton: 'Español',
       languageLabel: 'Change language',
@@ -126,6 +181,10 @@
   const entrada = document.getElementById('entrada');
   const resultado = document.getElementById('resultado');
   const estado = document.getElementById('estado');
+  const direction = document.getElementById('direction');
+  const archivo = document.getElementById('archivo');
+  const downloadResult = document.getElementById('downloadResult');
+  let downloadUrl = '';
   let language = localStorage.getItem('translator-language') === 'en' ? 'en' : 'es';
 
   function applyLanguage() {
@@ -133,10 +192,14 @@
     document.documentElement.lang = language;
     document.title = text.title.replace('🌐 ', '');
     document.getElementById('title').textContent = text.title;
-    document.getElementById('inputLabel').textContent = text.inputLabel;
-    entrada.placeholder = text.inputPlaceholder;
+    document.getElementById('directionLabel').textContent = text.directionLabel;
+    actualizarEntrada();
     document.getElementById('translateButton').textContent = text.translate;
     document.getElementById('resultLabel').textContent = text.resultLabel;
+    document.getElementById('fileTitle').textContent = text.fileTitle;
+    document.getElementById('fileLabel').textContent = text.fileLabel;
+    document.getElementById('fileButton').textContent = text.fileButton;
+    downloadResult.textContent = text.download;
     languageToggle.textContent = text.languageButton;
     languageToggle.setAttribute('aria-label', text.languageLabel);
     updateThemeButton();
@@ -146,6 +209,14 @@
     document.documentElement.dataset.theme = theme;
     localStorage.setItem('translator-theme', theme);
     updateThemeButton();
+  }
+
+  function actualizarEntrada() {
+    const text = translations[language];
+    const ingles = direction.value === 'en-es';
+    document.getElementById('inputLabel').textContent =
+      ingles ? text.inputLabelEnglish : text.inputLabelSpanish;
+    entrada.placeholder = ingles ? text.inputPlaceholderEnglish : text.inputPlaceholderSpanish;
   }
 
   function updateThemeButton() {
@@ -166,7 +237,8 @@
 
     resultado.value = '';
     estado.textContent = text.loading;
-    fetch('/traducir?texto=' + encodeURIComponent(texto), {
+    fetch('/traducir?texto=' + encodeURIComponent(texto) +
+      '&direccion=' + encodeURIComponent(direction.value), {
       headers: { 'Accept': 'application/json' }
     })
       .then(response => response.json())
@@ -180,15 +252,64 @@
       });
   }
 
+  function traducirArchivo() {
+    const text = translations[language];
+    const file = archivo.files[0];
+    const extension = file ? file.name.split('.').pop().toLowerCase() : '';
+    if (!file || !['txt', 'docx', 'pdf'].includes(extension)) {
+      estado.textContent = text.fileEmpty;
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      estado.textContent = text.fileTooLarge;
+      return;
+    }
+
+    resultado.value = '';
+    downloadResult.hidden = true;
+    estado.textContent = text.fileLoading;
+    file.arrayBuffer()
+      .then(contenido => fetch('/traducir-archivo?direccion=' +
+        encodeURIComponent(direction.value) + '&nombre=' + encodeURIComponent(file.name), {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/octet-stream' },
+          body: contenido
+        }))
+      .then(response => response.json().then(data => ({ response, data })))
+      .then(({ response, data }) => {
+        if (!response.ok || data.error || data.detail) {
+          throw new Error(data.error || data.detail || text.fileError);
+        }
+        const bytes = Uint8Array.from(atob(data.contenido), caracter => caracter.charCodeAt(0));
+        if (extension === 'txt') {
+          resultado.value = new TextDecoder('utf-8').decode(bytes);
+        }
+        if (downloadUrl) URL.revokeObjectURL(downloadUrl);
+        downloadUrl = URL.createObjectURL(new Blob(
+          [bytes], { type: data.tipo_mime }
+        ));
+        downloadResult.href = downloadUrl;
+        downloadResult.download = data.nombre;
+        downloadResult.hidden = false;
+        estado.textContent = text.fileSuccess;
+      })
+      .catch(error => {
+        resultado.value = '';
+        estado.textContent = `${text.fileError}: ${error.message}`;
+      });
+  }
+
   languageToggle.addEventListener('click', () => {
     language = language === 'es' ? 'en' : 'es';
     localStorage.setItem('translator-language', language);
     applyLanguage();
   });
+  direction.addEventListener('change', actualizarEntrada);
   themeToggle.addEventListener('click', () => {
     applyTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
   });
   document.getElementById('translateButton').addEventListener('click', traducir);
+  document.getElementById('fileButton').addEventListener('click', traducirArchivo);
   entrada.addEventListener('keydown', event => {
     if (event.ctrlKey && event.key === 'Enter') traducir();
   });

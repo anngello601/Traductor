@@ -8,7 +8,9 @@ import java.time.Duration
 
 object Servidor {
   val PUERTO = 8080
+  private val TAMANO_MAXIMO_ARCHIVO = 10 * 1024 * 1024
   private val clienteHttp = HttpClient.newBuilder()
+    .version(HttpClient.Version.HTTP_1_1)
     .connectTimeout(Duration.ofSeconds(5))
     .build()
 
@@ -36,18 +38,37 @@ object Servidor {
     // Ruta pública: Scala coordina Python y Prolog, pero no ejecuta procesos externos.
     servidor.createContext("/traducir", new HttpHandler {
       def handle(ex: HttpExchange): Unit = {
-        val query = ex.getRequestURI.getQuery
-        val texto =
-          if (query != null && query.startsWith("texto="))
-            java.net.URLDecoder.decode(query.substring(6), "UTF-8")
-          else ""
-        val limpio = texto.toLowerCase.replaceAll("[^a-záéíóúñü0-9 ]", "").trim
-        val resp   = traducirConPython(limpio)
-        val bytes  = resp.getBytes(StandardCharsets.UTF_8)
-        ex.getResponseHeaders.set("Content-Type", "application/json; charset=UTF-8")
-        ex.sendResponseHeaders(200, bytes.length)
-        ex.getResponseBody.write(bytes)
-        ex.close()
+        try {
+          val parametros = leerParametros(ex.getRequestURI)
+          val texto = parametros.getOrElse("texto", "")
+          val direccion = parametros.getOrElse("direccion", "en-es")
+          val limpio = texto.toLowerCase.replaceAll("[^a-záéíóúñü0-9 ]", "").trim
+          val resp = traducirConPython(limpio, direccion)
+          responder(ex, 200, resp)
+        } finally ex.close()
+      }
+    })
+
+    servidor.createContext("/traducir-archivo", new HttpHandler {
+      def handle(ex: HttpExchange): Unit = {
+        try {
+          if (ex.getRequestMethod != "POST") {
+            responder(ex, 405, jsonError("Método no permitido", "Usa POST"))
+          } else {
+            val contenido = ex.getRequestBody.readNBytes(TAMANO_MAXIMO_ARCHIVO + 1)
+            if (contenido.length > TAMANO_MAXIMO_ARCHIVO) {
+              responder(ex, 413, jsonError("Archivo demasiado grande", "Máximo 10 MB"))
+            } else if (contenido.isEmpty) {
+              responder(ex, 400, jsonError("Archivo vacío", ""))
+            } else {
+              val parametros = leerParametros(ex.getRequestURI)
+              val direccion = parametros.getOrElse("direccion", "en-es")
+              val nombre = parametros.getOrElse("nombre", "")
+              val (estado, respuesta) = traducirArchivoConPython(contenido, direccion, nombre)
+              responder(ex, estado, respuesta)
+            }
+          }
+        } finally ex.close()
       }
     })
 
@@ -60,11 +81,14 @@ object Servidor {
     Thread.currentThread().join()
   }
 
-  def traducirConPython(texto: String): String = {
+  def traducirConPython(texto: String, direccion: String): String = {
     if (texto.isEmpty) return jsonError("Texto vacío", "")
 
     val textoCodificado = URLEncoder.encode(texto, "UTF-8")
-    val url = URI.create(s"http://127.0.0.1:5001/traducir?texto=$textoCodificado")
+    val direccionCodificada = URLEncoder.encode(direccion, "UTF-8")
+    val url = URI.create(
+      s"http://127.0.0.1:5001/traducir?texto=$textoCodificado&direccion=$direccionCodificada"
+    )
     val request = HttpRequest.newBuilder(url)
       .GET()
       .timeout(Duration.ofSeconds(10))
@@ -84,6 +108,57 @@ object Servidor {
       case _: Exception =>
         jsonError("Servicio Python no disponible", "")
     }
+  }
+
+  private def traducirArchivoConPython(
+    contenido: Array[Byte],
+    direccion: String,
+    nombre: String
+  ): (Int, String) = {
+    val direccionCodificada = URLEncoder.encode(direccion, "UTF-8")
+    val nombreCodificado = URLEncoder.encode(nombre, "UTF-8")
+    val url = URI.create(
+      s"http://127.0.0.1:5001/traducir-archivo?direccion=$direccionCodificada&nombre=$nombreCodificado"
+    )
+    val request = HttpRequest.newBuilder(url)
+      .header("Content-Type", "application/octet-stream")
+      .POST(HttpRequest.BodyPublishers.ofByteArray(contenido))
+      .timeout(Duration.ofSeconds(30))
+      .build()
+
+    try {
+      val response = clienteHttp.send(
+        request,
+        HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8)
+      )
+      (response.statusCode(), response.body().trim)
+    } catch {
+      case _: Exception =>
+        (503, jsonError("Servicio Python no disponible", ""))
+    }
+  }
+
+  private def leerParametros(uri: URI): Map[String, String] =
+    Option(uri.getRawQuery).toSeq
+      .flatMap(_.split("&"))
+      .flatMap { parametro =>
+        parametro.split("=", 2) match {
+          case Array(clave, valor) =>
+            Some(
+              java.net.URLDecoder.decode(clave, "UTF-8") ->
+                java.net.URLDecoder.decode(valor, "UTF-8")
+            )
+          case Array(clave) =>
+            Some(java.net.URLDecoder.decode(clave, "UTF-8") -> "")
+        }
+      }
+      .toMap
+
+  private def responder(ex: HttpExchange, estado: Int, contenido: String): Unit = {
+    val bytes = contenido.getBytes(StandardCharsets.UTF_8)
+    ex.getResponseHeaders.set("Content-Type", "application/json; charset=UTF-8")
+    ex.sendResponseHeaders(estado, bytes.length)
+    ex.getResponseBody.write(bytes)
   }
 
   private def jsonError(mensaje: String, detalle: String): String =

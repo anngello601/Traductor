@@ -1,0 +1,20 @@
+[debug] Packaging C:\Users\Pc601\Desktop\Doom3\Traductor\target\out\jvm\scala-3.10.0\traductor-simple\traductor-simple_3-1.0.jar ...
+[debug] Input file mappings:
+[debug] 	Servidor$$anon$1.class
+[debug] 	  C:\Users\Pc601\Desktop\Doom3\Traductor\target\out\jvm\scala-3.10.0\traductor-simple\classes\Servidor$$anon$1.class
+[debug] 	Servidor$$anon$2.class
+[debug] 	  C:\Users\Pc601\Desktop\Doom3\Traductor\target\out\jvm\scala-3.10.0\traductor-simple\classes\Servidor$$anon$2.class
+[debug] 	Servidor$$anon$3.class
+[debug] 	  C:\Users\Pc601\Desktop\Doom3\Traductor\target\out\jvm\scala-3.10.0\traductor-simple\classes\Servidor$$anon$3.class
+[debug] 	Servidor$.class
+[debug] 	  C:\Users\Pc601\Desktop\Doom3\Traductor\target\out\jvm\scala-3.10.0\traductor-simple\classes\Servidor$.class
+[debug] 	Servidor.class
+[debug] 	  C:\Users\Pc601\Desktop\Doom3\Traductor\target\out\jvm\scala-3.10.0\traductor-simple\classes\Servidor.class
+[debug] 	Servidor.tasty
+[debug] 	  C:\Users\Pc601\Desktop\Doom3\Traductor\target\out\jvm\scala-3.10.0\traductor-simple\classes\Servidor.tasty
+[debug] 	index.html
+[debug] 	  C:\Users\Pc601\Desktop\Doom3\Traductor\src\main\resources\index.html
+[debug] 	traductor.pl
+[debug] 	  C:\Users\Pc601\Desktop\Doom3\Traductor\src\main\prolog\traductor.pl
+[debug] Done packaging.
+[debug] wrote ${OUT}/jvm/scala-3.10.0/traductor-simple/traductor-simple_3-1.0.jar

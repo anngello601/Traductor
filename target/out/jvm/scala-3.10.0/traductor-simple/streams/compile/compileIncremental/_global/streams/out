@@ -1,19 +1,31 @@
 [debug] [zinc] IncrementalCompile -----------
 [debug] IncrementalCompile.incrementalCompile
-[debug] previous = Stamps for: 0 products, 0 sources, 0 libraries
+[debug] previous = Stamps for: 5 products, 1 sources, 1 libraries
 [debug] current source = Set(${BASE}/src/main/scala/Servidor.scala)
-[debug] > initialChanges = InitialChanges(Changes(added = Set(${BASE}/src/main/scala/Servidor.scala), removed = Set(), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set())
-[debug] Full compilation, no sources in previous analysis.
+[debug] > initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(${BASE}/src/main/scala/Servidor.scala), unmodified = ...),Set(),Set(),API Changes: Set())
+[debug] 
+[debug] Initial source changes:
+[debug] 	removed: Set()
+[debug] 	added: Set()
+[debug] 	modified: Set(${BASE}/src/main/scala/Servidor.scala)
+[debug] Invalidated products: Set()
+[debug] External API changes: API Changes: Set()
+[debug] Modified binary dependencies: Set()
+[debug] Initial directly invalidated classes: Set(Servidor)
+[debug] Sources indirectly invalidated by:
+[debug] 	product: Set()
+[debug] 	binary dep: Set()
+[debug] 	external source: Set()
 [debug] all 1 sources are invalidated
-[debug] Initial set of included nodes: 
+[debug] Initial set of included nodes: Servidor
 [debug] Recompiling all sources: number of invalidated sources > 50.0 percent of all sources
 [debug] compilation cycle 1
-[info] compiling 1 Scala source to C:\Users\Pc601\Desktop\traductor-simple\target\out\jvm\scala-3.10.0\traductor-simple\classes ...
+[info] compiling 1 Scala source to C:\Users\Pc601\Desktop\Doom3\Traductor\target\out\jvm\scala-3.10.0\traductor-simple\classes ...
 [debug] Returning already retrieved and compiled bridge: C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala3-sbt-bridge\3.10.0\scala3-sbt-bridge-3.10.0.jar.
-[debug] [zinc] Running cached compiler 302a28bc for Scala Compiler version 3.10.0
+[debug] [zinc] Running cached compiler 5bb038a3 for Scala Compiler version 3.10.0
 [debug] [zinc] The Scala compiler is invoked with:
 [debug] 	-classpath
-[debug] 	C:\Users\Pc601\Desktop\traductor-simple\target\out\jvm\scala-3.10.0\traductor-simple\classes;C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala3-library_3\3.10.0\scala3-library_3-3.10.0.jar;C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\3.10.0\scala-library-3.10.0.jar
-[debug] Scala compilation took 0.3385452 s
+[debug] 	C:\Users\Pc601\Desktop\Doom3\Traductor\target\out\jvm\scala-3.10.0\traductor-simple\classes;C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala3-library_3\3.10.0\scala3-library_3-3.10.0.jar;C:\Users\Pc601\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\3.10.0\scala-library-3.10.0.jar
+[debug] Scala compilation took 0.596734 s
 [info] done compiling
 [debug] wrote ${OUT}/jvm/scala-3.10.0/traductor-simple/classes

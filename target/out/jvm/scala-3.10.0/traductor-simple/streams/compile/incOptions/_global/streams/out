@@ -1,16 +1,35 @@
-[debug] Created transactional ClassFileManager with tempDir = C:\Users\Pc601\Desktop\traductor-simple\target\out\jvm\scala-3.10.0\traductor-simple\classes.bak
+[debug] Created transactional ClassFileManager with tempDir = C:\Users\Pc601\Desktop\Doom3\Traductor\target\out\jvm\scala-3.10.0\traductor-simple\classes.bak
 [debug] About to delete class files:
-[debug] We backup class files:
-[debug] Created transactional ClassFileManager with tempDir = C:\Users\Pc601\Desktop\traductor-simple\target\out\jvm\scala-3.10.0\traductor-simple\classes.bak
-[debug] About to delete class files:
-[debug] We backup class files:
-[debug] Registering generated classes:
-[debug] 	Servidor$$anon$2.class
-[debug] 	Servidor$.class
 [debug] 	Servidor.class
+[debug] 	Servidor$.class
+[debug] 	Servidor$$anon$2.class
+[debug] 	Servidor$$anon$3.class
 [debug] 	Servidor$$anon$1.class
-[debug] 	Servidor$$anon$2.tasty
-[debug] 	Servidor$.tasty
 [debug] 	Servidor.tasty
+[debug] 	Servidor$.tasty
+[debug] 	Servidor$$anon$2.tasty
+[debug] 	Servidor$$anon$3.tasty
 [debug] 	Servidor$$anon$1.tasty
-[debug] Removing the temporary directory used for backing up class files: C:\Users\Pc601\Desktop\traductor-simple\target\out\jvm\scala-3.10.0\traductor-simple\classes.bak
+[debug] We backup class files:
+[debug] 	Servidor.class
+[debug] 	Servidor$.class
+[debug] 	Servidor$$anon$2.class
+[debug] 	Servidor$$anon$3.class
+[debug] 	Servidor$$anon$1.class
+[debug] 	Servidor.tasty
+[debug] 	Servidor$.tasty
+[debug] 	Servidor$$anon$2.tasty
+[debug] 	Servidor$$anon$3.tasty
+[debug] 	Servidor$$anon$1.tasty
+[debug] Registering generated classes:
+[debug] 	Servidor.class
+[debug] 	Servidor$.class
+[debug] 	Servidor$$anon$2.class
+[debug] 	Servidor$$anon$3.class
+[debug] 	Servidor$$anon$1.class
+[debug] 	Servidor.tasty
+[debug] 	Servidor$.tasty
+[debug] 	Servidor$$anon$2.tasty
+[debug] 	Servidor$$anon$3.tasty
+[debug] 	Servidor$$anon$1.tasty
+[debug] Removing the temporary directory used for backing up class files: C:\Users\Pc601\Desktop\Doom3\Traductor\target\out\jvm\scala-3.10.0\traductor-simple\classes.bak

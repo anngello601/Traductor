@@ -1,0 +1,25 @@
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(sbtMapExec 526d0c4b-8b76-4a07-b08e-ea2784db85de __b6bdafb7-c296-415b-96bd-391572aab276, None, None)
+[debug] > Exec(run, Some(__b6bdafb7-c296-415b-96bd-391572aab276), Some(CommandSource(network-6)))
+[debug] jsonRpcNotify: JsonRpcNotificationMessage(2.0, build/logMessage, {"type":4,"message":"Processing sbt/exec"})
+[debug] Evaluating tasks: Compile / run
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] jsonRpcNotify: JsonRpcNotificationMessage(2.0, build/taskStart, {"taskId":{"id":"7","parents":[]},"eventTime":1795665546047,"message":"Compiling traductor","dataKind":"compile-task","data":{"target":{"uri":"file:/C:/Users/Pc601/Desktop/Doom3/Traductor/#traductor/Compile"}}})
+[info] compiling 1 Scala source to C:\Users\Pc601\Desktop\Doom3\Traductor\target\out\jvm\scala-3.10.0\traductor-simple\classes ...
+[debug] jsonRpcNotify: JsonRpcNotificationMessage(2.0, build/logMessage, {"type":3,"message":"compiling 1 Scala source to C:\\Users\\Pc601\\Desktop\\Doom3\\Traductor\\target\\out\\jvm\\scala-3.10.0\\traductor-simple\\classes ..."})
+[debug] jsonRpcNotify: JsonRpcNotificationMessage(2.0, build/taskProgress, {"taskId":{"id":"7","parents":[]},"eventTime":1795665546334,"message":"Compiling traductor (20%)","total":30,"progress":20,"dataKind":"compile-progress","data":{"target":{"uri":"file:/C:/Users/Pc601/Desktop/Doom3/Traductor/#traductor/Compile"}}})
+[debug] jsonRpcNotify: JsonRpcNotificationMessage(2.0, build/taskProgress, {"taskId":{"id":"7","parents":[]},"eventTime":1795665546374,"message":"Compiling traductor (55%)","total":29,"progress":55,"dataKind":"compile-progress","data":{"target":{"uri":"file:/C:/Users/Pc601/Desktop/Doom3/Traductor/#traductor/Compile"}}})
+[debug] jsonRpcNotify: JsonRpcNotificationMessage(2.0, build/taskProgress, {"taskId":{"id":"7","parents":[]},"eventTime":1795665546375,"message":"Compiling traductor (55%)","total":29,"progress":55,"dataKind":"compile-progress","data":{"target":{"uri":"file:/C:/Users/Pc601/Desktop/Doom3/Traductor/#traductor/Compile"}}})
+[debug] jsonRpcNotify: JsonRpcNotificationMessage(2.0, build/taskProgress, {"taskId":{"id":"7","parents":[]},"eventTime":1795665546538,"message":"Compiling traductor (80%)","total":26,"progress":80,"dataKind":"compile-progress","data":{"target":{"uri":"file:/C:/Users/Pc601/Desktop/Doom3/Traductor/#traductor/Compile"}}})
+[debug] jsonRpcNotify: JsonRpcNotificationMessage(2.0, build/taskProgress, {"taskId":{"id":"7","parents":[]},"eventTime":1795665546539,"message":"Compiling traductor (80%)","total":26,"progress":80,"dataKind":"compile-progress","data":{"target":{"uri":"file:/C:/Users/Pc601/Desktop/Doom3/Traductor/#traductor/Compile"}}})
+[debug] jsonRpcNotify: JsonRpcNotificationMessage(2.0, build/taskProgress, {"taskId":{"id":"7","parents":[]},"eventTime":1795665546671,"message":"Compiling traductor (100%)","total":26,"progress":100,"dataKind":"compile-progress","data":{"target":{"uri":"file:/C:/Users/Pc601/Desktop/Doom3/Traductor/#traductor/Compile"}}})
+[info] done compiling
+[debug] jsonRpcNotify: JsonRpcNotificationMessage(2.0, build/logMessage, {"type":3,"message":"done compiling"})
+[debug] jsonRpcNotify: JsonRpcNotificationMessage(2.0, build/taskFinish, {"taskId":{"id":"7","parents":[]},"eventTime":1795665546761,"message":"Compiled traductor","status":1,"dataKind":"compile-report","data":{"target":{"uri":"file:/C:/Users/Pc601/Desktop/Doom3/Traductor/#traductor/Compile"},"errors":0,"warnings":0,"time":714,"noOp":false}})
+[debug] jsonRpcNotify: JsonRpcNotificationMessage(2.0, sbt/clientJob, {"runInfo":{"jvm":true,"jvmRunInfo":{"args":[],"classpath":[{"path":"file:///C:/Users/Pc601/Desktop/Doom3/Traductor/target/bg-jobs/sbt_10c24755/job-4/target/f267a33a/3ca4958c/traductor-simple_3-1.0.jar","digest":""},{"path":"file:///C:/Users/Pc601/Desktop/Doom3/Traductor/target/bg-jobs/sbt_10c24755/target/1f72c6e2/96d5187d/scala3-library_3-3.10.0.jar","digest":""},{"path":"file:///C:/Users/Pc601/Desktop/Doom3/Traductor/target/bg-jobs/sbt_10c24755/target/4ccf5762/26d37501/scala-library-3.10.0.jar","digest":""}],"mainClass":"Servidor","connectInput":true,"javaHome":"file:///C:/Program%20Files/Java/jdk-25.0.3","workingDirectory":"file:///C:/Users/Pc601/Desktop/Doom3/Traductor","jvmOptions":[],"environmentVariables":{},"inputs":[],"outputs":[]},"windowTitle":"sbt run: traductor-simple % traductor-simple % 1.0"}})
+[debug] > Exec(sbtCompleteExec 526d0c4b-8b76-4a07-b08e-ea2784db85de, None, None)
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(sbtPopOnFailure, None, None)
+[debug] > Exec(sbtReportResult 526d0c4b-8b76-4a07-b08e-ea2784db85de, Some(526d0c4b-8b76-4a07-b08e-ea2784db85de), Some(CommandSource(network-6)))
+[debug] jsonRpcNotify: JsonRpcNotificationMessage(2.0, build/logMessage, {"type":4,"message":"Processing sbt/exec"})
+[debug] > Exec(shell, None, None)

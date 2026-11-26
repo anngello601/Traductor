@@ -25,7 +25,8 @@
 
 <h1>Traductor-Simple: explicación completa del código</h1>
 
-<p><strong>Proyecto:</strong> traducción Inglés → Español mediante HTML, JavaScript, Scala, Python/FastAPI y SWI-Prolog.</p>
+<p><strong>Proyecto:</strong> traducción bidireccional Español ↔ Inglés mediante HTML, JavaScript, Scala, Python/FastAPI y SWI-Prolog.</p>
+<p>La interfaz permite elegir la dirección y traducir archivos <code>.txt</code>, Word moderno <code>.docx</code> y PDF de hasta 10 MB. El resultado se descarga en el mismo formato y con el sufijo <code>-traducido</code>. Los PDF deben contener texto seleccionable; los documentos escaneados requieren OCR y no se admiten.</p>
 <p><strong>Prueba representativa:</strong> la frase <code>I AM FIVE YEARS OLD AND MY FRIEND HAS THREE BOOKS</code> conserva los números escritos y produce una traducción similar a:</p>
 <pre>yo tengo cinco años y mi amigo tiene tres libros</pre>
 
@@ -74,7 +75,7 @@
 
 <h2>3. Código del navegador: HTML y JavaScript</h2>
 
-<p>El usuario escribe en el primer <code>textarea</code>. Al pulsar <strong>Traducir</strong>, JavaScript envía el texto mediante URL codificada:</p>
+<p>El usuario elige Español → Inglés o Inglés → Español y escribe en el primer <code>textarea</code>. Al pulsar <strong>Traducir</strong>, JavaScript envía el texto y la dirección mediante URL codificada. El formulario de archivos acepta <code>.txt</code>, <code>.docx</code> y PDF con texto seleccionable; envía los bytes a Scala por HTTP POST, Scala los reenvía a Python y la interfaz descarga el documento traducido en el mismo formato.</p>
 
 <pre>
 fetch('/traducir?texto=' + encodeURIComponent(texto))
@@ -121,7 +122,7 @@ class SolicitudTraduccion(BaseModel):
     texto: str
 </pre>
 
-<p>Python realiza tres pasos:</p>
+<p>Python realiza tres pasos y selecciona el diccionario según la dirección elegida:</p>
 <ol>
     <li><strong>Limpiar:</strong> pasa todo a minúsculas y conserva letras, acentos, espacios y números.</li>
     <li><strong>Tokenizar:</strong> divide la frase en palabras con <code>texto.split()</code>.</li>
