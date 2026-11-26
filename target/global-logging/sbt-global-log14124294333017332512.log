@@ -1,3 +1,0 @@
-[debug] > Exec(__stopWatch network-5, None, None)
-[debug] > Exec(shell, None, None)
-[debug] jsonRpcRequest: JsonRpcRequestMessage(2.0, 0441ac72-adb7-4552-b892-ca7ff163bb4b, sbt/terminalPropertiesQuery, ""})

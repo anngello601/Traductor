@@ -42,8 +42,7 @@ object Servidor {
           val parametros = leerParametros(ex.getRequestURI)
           val texto = parametros.getOrElse("texto", "")
           val direccion = parametros.getOrElse("direccion", "en-es")
-          val limpio = texto.toLowerCase.replaceAll("[^a-záéíóúñü0-9 ]", "").trim
-          val resp = traducirConPython(limpio, direccion)
+          val resp = traducirConPython(texto.trim, direccion)
           responder(ex, 200, resp)
         } finally ex.close()
       }

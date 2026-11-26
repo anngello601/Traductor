@@ -26,7 +26,7 @@
 <h1>Traductor-Simple: explicación completa del código</h1>
 
 <p><strong>Proyecto:</strong> traducción bidireccional Español ↔ Inglés mediante HTML, JavaScript, Scala, Python/FastAPI y SWI-Prolog.</p>
-<p>La interfaz permite elegir la dirección y traducir archivos <code>.txt</code>, Word moderno <code>.docx</code> y PDF de hasta 10 MB. El resultado se descarga en el mismo formato y con el sufijo <code>-traducido</code>. Los PDF deben contener texto seleccionable; los documentos escaneados requieren OCR y no se admiten.</p>
+<p>La interfaz permite elegir la dirección y traducir archivos <code>.txt</code>, Word moderno <code>.docx</code> y PDF de hasta 10 MB. El resultado se descarga en el mismo formato y con el sufijo <code>-traducido</code>. Los PDF deben contener texto seleccionable; los documentos escaneados requieren OCR y no se admiten. Si la traducción no cabe en las cajas del diseño original, el texto del PDF se reorganiza y puede ocupar páginas de continuación.</p>
 <p><strong>Prueba representativa:</strong> la frase <code>I AM FIVE YEARS OLD AND MY FRIEND HAS THREE BOOKS</code> conserva los números escritos y produce una traducción similar a:</p>
 <pre>yo tengo cinco años y mi amigo tiene tres libros</pre>
 
@@ -122,25 +122,17 @@ class SolicitudTraduccion(BaseModel):
     texto: str
 </pre>
 
-<p>Python realiza tres pasos y selecciona el diccionario según la dirección elegida:</p>
+<p>Python selecciona el diccionario y las reglas de frase según la dirección elegida:</p>
 <ol>
-    <li><strong>Limpiar:</strong> pasa todo a minúsculas y conserva letras, acentos, espacios y números.</li>
-    <li><strong>Tokenizar:</strong> divide la frase en palabras con <code>texto.split()</code>.</li>
-    <li><strong>Proponer:</strong> busca cada palabra en el diccionario Python.</li>
+    <li><strong>Reconocer frases:</strong> aplica primero expresiones completas, como <code>large number of</code> → <code>gran cantidad de</code>.</li>
+    <li><strong>Traducir vocabulario:</strong> consulta el diccionario de inglés → español o español → inglés, incluyendo términos de redes y seguridad.</li>
+    <li><strong>Conservar el texto:</strong> mantiene puntuación, mayúsculas y siglas técnicas como <code>TCP</code>, <code>SYN</code>, <code>DoS</code> y <code>DDoS</code>.</li>
 </ol>
-
-<pre>
-return re.sub(r"[^a-záéíóúñü0-9 ]", "", texto)
-</pre>
-
-<p>Las palabras desconocidas y los números se conservan:</p>
-<pre>
-return [DICCIONARIO.get(token, token) for token in tokens]
-</pre>
 
 <p>Por ejemplo, <code>23</code> se conserva como texto y se envía también mediante JSON. Los números escritos tienen su propia entrada: <code>three</code> se convierte en <code>tres</code> y <code>five</code> en <code>cinco</code>.</p>
 <p>Los números escritos también están incluidos en el diccionario: <code>zero, one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, twenty, thirty, hundred</code>. Por ejemplo, <code>five</code> se convierte en <code>cinco</code>.</p>
-<p><strong>Edad:</strong> la construcción inglesa <code>I am 5 years old</code> se convierte primero en <code>yo tengo 5 años</code>. Python detecta la estructura completa; Prolog conserva la validación y evita respuestas incorrectas como <code>yo soy 5 años viejo</code>.</p>
+<p>El vocabulario incluye términos técnicos como <code>administrator</code>, <code>TCP SYN packets</code> y <code>denial of service</code>, además de proyectos, entregas, trabajo en equipo y negociación, por ejemplo <code>project delay</code>, <code>active listening</code> y <code>reach an agreement</code>. Las reglas ajustan artículos y expresiones completas para reducir traducciones palabra por palabra.</p>
+<p><strong>Edad:</strong> <code>I am 5 years old</code> se traduce como <code>Yo tengo 5 años</code>; en sentido inverso, <code>Tengo 5 años</code> se traduce como <code>I am 5 years old</code>.</p>
 
 <h2>6. Código de Prolog: servidor de reglas</h2>
 
