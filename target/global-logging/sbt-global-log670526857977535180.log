@@ -13,3 +13,5 @@
 [debug] > Exec(sbtReportResult 6051db18-6b59-4484-bc79-6fe048618db1, Some(6051db18-6b59-4484-bc79-6fe048618db1), Some(CommandSource(network-8)))
 [debug] jsonRpcNotify: JsonRpcNotificationMessage(2.0, build/logMessage, {"type":4,"message":"Processing sbt/exec"})
 [debug] > Exec(shell, None, None)
+[debug] Forcing garbage collection...
+[debug] jsonRpcRequest: JsonRpcRequestMessage(2.0, 3d881ff0-d179-4ebb-9a4e-7253371d4395, sbt/terminalPropertiesQuery, ""})
